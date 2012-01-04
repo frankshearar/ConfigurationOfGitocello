@@ -82,11 +82,11 @@ version10: spec
 ConfigurationOfGitocello class
 	instanceVariableNames: ''!
 
-!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:54'!
+!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:58'!
 ensureMetacello
 	Smalltalk at: #MetacelloProject ifAbsent: [
 		"While Metacello installs Gofer, at this point Squeak doesn't have Gofer installed (and Pharo does)."
-		(Smalltalk at: #Installer)
+		(Smalltalk at: #Installer ifAbsent: [nil])
 			ifNil:
 				["This will work for Pharo... but not for a non-Squeak, non-Pharo Smalltalk."
 				(Smalltalk at: #Gofer) new
@@ -119,4 +119,3 @@ loadDefault
 project
 
 	^self new project! !
- new project! !
