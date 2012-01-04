@@ -64,9 +64,9 @@ project
 		project]! !
 
 
-!ConfigurationOfGitocello methodsFor: 'versions' stamp: 'fbs 1/3/2012 20:32'!
+!ConfigurationOfGitocello methodsFor: 'versions' stamp: 'fbs 1/3/2012 20:40'!
 version10: spec
-	<version: '1.0' imports: '1.0-baseline'>
+	<version: '1.0' imports: #('1.0-baseline')>
 	
 	spec for: #'common' do: [
 		spec blessing: #release.
@@ -110,7 +110,7 @@ loadDefault
 project
 
 	^self new project! !
-ls will operate on you"
+will operate on you"
 	
 	^true! !
 
