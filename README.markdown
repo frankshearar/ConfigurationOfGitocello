@@ -1,6 +1,7 @@
 Install Gitocello in Squeak:
 
-    Installer gemstone
+    Installer ss3
+        project: 'Gitocello-fbs';
         install: 'ConfigurationOfGitocello'.
 
     (Smalltalk at: #ConfigurationOfGitocello) load.
