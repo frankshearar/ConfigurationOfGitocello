@@ -70,13 +70,12 @@ project
 ConfigurationOfGitocello class
 	instanceVariableNames: ''!
 
-!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:03'!
+!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:18'!
 ensureMetacello
 	Smalltalk at: #MetacelloProject ifAbsent: [
-		Gofer new
-				url: 'http://seaside.gemstone.com/ss/metacello';
-				package: 'ConfigurationOfMetacello';
-				load.
+		Installer gemsource
+				project: 'metacello';
+				install: 'ConfigurationOfMetacello'.
 		(Smalltalk at: #ConfigurationOfMetacello) loadLatestVersion ]! !
 
 
@@ -97,6 +96,9 @@ loadDefault
 
 !ConfigurationOfGitocello class methodsFor: 'loading' stamp: 'fbs 1/3/2012 20:02'!
 project
+
+	^self new project! !
+ect
 
 	^self new project! !
 il:
