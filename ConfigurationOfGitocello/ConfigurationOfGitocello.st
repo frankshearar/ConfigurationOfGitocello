@@ -82,12 +82,21 @@ version10: spec
 ConfigurationOfGitocello class
 	instanceVariableNames: ''!
 
-!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:18'!
+!ConfigurationOfGitocello class methodsFor: 'private' stamp: 'fbs 1/3/2012 20:54'!
 ensureMetacello
 	Smalltalk at: #MetacelloProject ifAbsent: [
-		Installer gemsource
-				project: 'metacello';
-				install: 'ConfigurationOfMetacello'.
+		"While Metacello installs Gofer, at this point Squeak doesn't have Gofer installed (and Pharo does)."
+		(Smalltalk at: #Installer)
+			ifNil:
+				["This will work for Pharo... but not for a non-Squeak, non-Pharo Smalltalk."
+				(Smalltalk at: #Gofer) new
+					url: 'http://seaside.gemstone.com/ss/metacello';
+					package: 'ConfigurationOfMetacello';
+					load]
+			ifNotNil:
+				[(Smalltalk at: #Installer) gemsource
+					project: 'metacello';
+					install: 'ConfigurationOfMetacello'].
 		(Smalltalk at: #ConfigurationOfMetacello) loadLatestVersion ]! !
 
 
@@ -110,20 +119,4 @@ loadDefault
 project
 
 	^self new project! !
-will operate on you"
-	
-	^true! !
-
-
-!ConfigurationOfGitocello class methodsFor: 'loading' stamp: 'fbs 1/3/2012 20:15'!
-load
-	^ self project latestVersion load! !
-
-!ConfigurationOfGitocello class methodsFor: 'loading' stamp: 'fbs 1/3/2012 20:02'!
-loadDefault
-	(self project version: 'default') load! !
-
-!ConfigurationOfGitocello class methodsFor: 'loading' stamp: 'fbs 1/3/2012 20:02'!
-project
-
-	^self new project! !
+ new project! !
