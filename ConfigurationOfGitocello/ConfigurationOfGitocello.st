@@ -4,13 +4,12 @@ Object subclass: #ConfigurationOfGitocello
 	poolDictionaries: ''
 	category: 'ConfigurationOfGitocello'!
 
-!ConfigurationOfGitocello methodsFor: 'baselines' stamp: 'fbs 1/3/2012 20:10'!
+!ConfigurationOfGitocello methodsFor: 'baselines' stamp: 'fbs 1/3/2012 20:27'!
 baseline10: spec 
 	<version: '1.0-baseline'>
 	
 	spec for: #common do: [
 		spec blessing: #baseline.
-		spec author: 'Frank Shearar'.
 		spec description: 'Gitocello: providing Monticello-Git interop thanks to Tim Felgentreff!!'.
 		spec repository: 'http://www.hpi.uni-potsdam.de/hirschfeld/squeaksource/Gitocello/'.
 		spec package: 'Gitocello' with: [ spec requires: 'FFI'].
@@ -65,6 +64,19 @@ project
 		project]! !
 
 
+!ConfigurationOfGitocello methodsFor: 'versions' stamp: 'fbs 1/3/2012 20:32'!
+version10: spec
+	<version: '1.0' imports: '1.0-baseline'>
+	
+	spec for: #'common' do: [
+		spec blessing: #release.
+		spec author: 'Frank Shearar'.
+		spec timestamp: '2012/01/03 20:28'.
+		spec
+			package: 'ConfigurationOfFFI' with: 'ConfigurationOfFFI-cwp.21';
+			package: 'Gitocello' with: 'Gitocello-tfel.89'.
+	]! !
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 ConfigurationOfGitocello class
@@ -98,19 +110,7 @@ loadDefault
 project
 
 	^self new project! !
-ect
-
-	^self new project! !
-il:
-				[(Smalltalk at: #Installer) gemsource
-					project: 'metacello';
-					install: 'ConfigurationOfMetacello'].
-		(Smalltalk at: #ConfigurationOfMetacello) loadLatestVersion ]! !
-
-
-!ConfigurationOfGitocello class methodsFor: 'metacello tool support' stamp: 'fbs 1/3/2012 20:02'!
-isMetacelloConfig
-	"Answer true and the Metacello tools will operate on you"
+ls will operate on you"
 	
 	^true! !
 
