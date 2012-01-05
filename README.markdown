@@ -1,4 +1,4 @@
-Install Gitocello in Squeak:
+Install [Gitocello](https://github.com/timfel/gitocello) in Squeak:
 
     Installer ss3
         project: 'Gitocello-fbs';
